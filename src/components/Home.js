@@ -7,20 +7,64 @@ class Home extends React.Component {
 
     this.state = {
       title: '我是Home组件',
+      username: '床前明月光',
       age: 20,
-      url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1547198241488&di=caf4e88cd1d819a69a9c55e58429ea3e&imgtype=0&src=http%3A%2F%2Fh.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F2f738bd4b31c87018e9450642a7f9e2f0708ff16.jpg'
+      list: [1, 2, 3, 4, 5, 6, 7]
+    }
+  }
+
+  run (item) {
+
+    alert(item)
+  }
+
+  changeTheTitle (title) {
+    this.setState({
+      title: title
+    })
+  }
+
+  onUsernameChange = (e) => {
+    console.log(e);
+    this.setState({
+      username: e.target.value
+    })
+  }
+
+  setUsername = () => {
+    this.setState({
+      username:  '你好啊'
+    })
+  }
+
+  onKeyUp =(e) => {
+    if (e.keyCode === 13) {
+      alert(e.target.value)
+
+
+
+
     }
   }
 
   render () {
+    let list = this.state.list
+
     return (
       <div>
         <h1 className='red'>{ this.state.title }</h1>
-        <div>{ this.state.name }</div>
-        <div>{ this.state.age }</div>
-        <div>疑似地上霜。</div>
-        <div>疑似地上霜。</div>
-        <img src={ this.state.url } alt={'你好'} />
+        <div style={{color: 'red'}}>{ this.state.age }</div>
+        <img className='img' src={ require('../assets/images/1.jpg') } alt={'你好'} />
+        <div className='list' >
+          {
+            list.map(item => <div key={item} onClick={this.run.bind(item)}>{item + '1111'}</div>)
+          }
+        </div>
+        <input type="text" value={this.state.username} onChange={this.onUsernameChange}/>
+        <div>名字：{ this.state.username }</div>
+        <div>
+          <button onClick={this.setUsername}>改变username</button>
+        </div>
       </div>
     )
   }
