@@ -11,4 +11,3 @@ trim_trailing_whitespace = true
 /config
 /scripts
 /node_modules
-/.idea
