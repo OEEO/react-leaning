@@ -1,6 +1,6 @@
 import React from 'react'
 
-class News extends React.Component {
+class About extends React.Component {
   static defaultProps = {}
 
   static propTypes = {}
@@ -15,10 +15,10 @@ class News extends React.Component {
 
     return (
       <div>
-        News 组件
+        About 组件
       </div>
     )
   }
 }
 
-export default News
+export default About
