@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 class News extends React.Component {
   static defaultProps = {}
@@ -8,14 +9,31 @@ class News extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      routerList: [
+        { title: '111', aid: 111 },
+        { title: '222', aid: 222 },
+        { title: '333', aid: 333 },
+        { title: '333', aid: 333 }
+      ]
+    }
   }
 
   render() {
 
     return (
       <div>
-        News 组件
+        <ul>
+          {
+            this.state.routerList.map((item, key) => {
+              return (
+                <li key={key}>
+                  <Link to={`/content/${item.aid}`}>{item.title}</Link>
+                </li>
+              )
+            })
+          }
+        </ul>
       </div>
     )
   }
